@@ -4,9 +4,9 @@ using Amazon.AppConfig;
 using Amazon.AppConfig.Model;
 using Amazon.AppConfigData;
 using Amazon.AppConfigData.Model;
-using Gliese.Models;
+using Venus.Models;
 using Microsoft.EntityFrameworkCore;
-namespace Gliese.Services
+namespace Venus.Services
 {
     public class PolarisConfig
     {
@@ -83,10 +83,10 @@ namespace Gliese.Services
             var response = await client.GetLatestConfigurationAsync(request);
             if (response.HttpStatusCode != HttpStatusCode.OK)
                 throw new Exception("GetLatestConfigurationAsync Response HTTP Status Code does not indicate success");
-  
+
             StreamReader reader = new StreamReader(response.Configuration);
             string text = reader.ReadToEnd();
- 
+
             return text;
         }
 

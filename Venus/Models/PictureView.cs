@@ -1,22 +1,21 @@
-using Gliese.Models;
+using Venus.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Markdig;
-using Gliese.Utils;
+using Newtonsoft.Json.Linq; 
 
-namespace Gliese.Models {
- 
+namespace Venus.Models
+{
+
     public class PictureViewModel
     {
         [Column("pk")]
-        public string Pk { get; set; } = ""; 
+        public string Pk { get; set; } = "";
         [Column("views")]
-        public int? Views { get; set; } = 0; 
+        public int? Views { get; set; } = 0;
 
     }
 }

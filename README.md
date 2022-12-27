@@ -1,13 +1,12 @@
 一个.NET 7.0示例项目，再尝试写点东西
 
-
 ### 编译构建
 
 这里target目录定为输出目录
 
 ```shell
 # 服务端构建
-dotnet publish -c Release --output ./Docker/bin Gliese.sln
+dotnet publish -c Release --output ./Docker/bin Venus.sln
 ```
 
 ### 构建Docker镜像

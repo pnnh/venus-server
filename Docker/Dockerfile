@@ -15,4 +15,4 @@ ENV LD_LIBRARY_PATH /opt/lib
 COPY bin /opt/bin
 
 # 启动程序
-ENTRYPOINT ["/opt/bin/Gliese"]
+ENTRYPOINT ["/opt/bin/Venus"]

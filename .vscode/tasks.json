@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Gliese/Gliese.csproj",
+                "${workspaceFolder}/Venus/Venus.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/Gliese/Gliese.csproj",
+                "${workspaceFolder}/Venus/Venus.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,13 +33,13 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/Gliese/Gliese.csproj",
+                "${workspaceFolder}/Venus/Venus.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile",
             "options": {
-                "cwd": "${workspaceFolder}/Gliese/"
+                "cwd": "${workspaceFolder}/Venus/"
             }
         }
     ]

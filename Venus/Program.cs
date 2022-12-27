@@ -6,21 +6,22 @@ using Amazon.AppConfig;
 using Amazon.AppConfig.Model;
 using Amazon.AppConfigData;
 using Amazon.AppConfigData.Model;
-using Gliese.Models;
+using Venus.Models;
 using Microsoft.EntityFrameworkCore;
-using Gliese.Services;
+using Venus.Services;
 using StackExchange.Redis;
 
-namespace Gliese
+namespace Venus
 {
-    public class Gliese
+    public class Venus
     {
         public static async Task Main(string[] args)
         {
 
             var builder = WebApplication.CreateBuilder(args);
-            
-            builder.Logging.ClearProviders().AddSimpleConsole(options => {
+
+            builder.Logging.ClearProviders().AddSimpleConsole(options =>
+            {
                 options.SingleLine = true;
                 options.IncludeScopes = true;
                 options.UseUtcTimestamp = true;
@@ -39,7 +40,7 @@ namespace Gliese
             redisOptions.Password = redisConfig.Password;
             var multiplexer = ConnectionMultiplexer.Connect(redisOptions);
             builder.Services.AddSingleton<IConnectionMultiplexer>(multiplexer);
- 
+
             builder.Services.AddDbContext<BloggingContext>(options =>
             {
                 options.UseNpgsql(config.PgDsn);

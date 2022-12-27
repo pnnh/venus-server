@@ -13,9 +13,9 @@ const customResolver = nodeResolve({
   extensions: ['.mjs', '.js', '.jsx', '.json', '.sass', '.scss']
 })
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production'
 
-const outDir = '../Gliese/wwwroot/assets'
+const outDir = '../Venus/wwwroot/assets'
 
 export default {
   input: 'src/index.tsx',

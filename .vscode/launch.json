@@ -4,11 +4,11 @@
         {
             "name": "Launch",
             "type": "coreclr",
-            "request": "launch", 
+            "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/Gliese/bin/Debug/net7.0/Gliese.dll",
+            "program": "${workspaceFolder}/Venus/bin/Debug/net7.0/Venus.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Gliese", 
+            "cwd": "${workspaceFolder}/Venus",
             "stopAtEntry": false,
             "targetArchitecture": "x86_64",
             "env": {
@@ -22,11 +22,11 @@
         {
             "name": "Watch",
             "type": "coreclr",
-            "request": "launch", 
+            "request": "launch",
             "preLaunchTask": "watch",
-            "program": "${workspaceFolder}/Gliese/bin/Debug/net7.0/Gliese.dll",
+            "program": "${workspaceFolder}/Venus/bin/Debug/net7.0/Venus.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Gliese", 
+            "cwd": "${workspaceFolder}/Venus",
             "stopAtEntry": false,
             "targetArchitecture": "x86_64",
             "env": {

@@ -1,4 +1,4 @@
-namespace Gliese.Models;
+namespace Venus.Models;
 
 public class ErrorViewModel
 {

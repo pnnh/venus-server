@@ -28,18 +28,7 @@
 							</div>
                         } 
 					</div>
-					<div class="page-list">  
-						@if(Model.PrevPage >= 1) {
-							<a class="page" href="/?page=@Model.PrevPage">上一页</a>
-						}
-						@for(var n = Model.StartPage; n <= Model.EndPage; ++n) {
-							var active = n == Model.CurrentPage ? "active" : "";
-							<a class="page @active" href="/?page=@n">@n</a>
-						}
-						@if (Model.NextPage <= Model.MaxPage) {
-							<a class="page" href="/?page=@Model.NextPage">下一页</a>
-						} 
-					</div>
+					@await Html.PartialAsync("../Shared/_Pagination.cshtml", Model.Pagination)
 				</div>
 			</div>
 		</main> 
