@@ -1,5 +1,12 @@
-@charset "UTF-8";
-@import "media"; 
+@charset "UTF-8"; 
+
+$screen-small: 20em;        // 320px
+$screen-medium: 40em;       // 640px
+$screen-large: 80em;        // 1280px
+
+$screen-phone: $screen-small;     // 手机
+$screen-tablet: $screen-medium;    // 平板
+$screen-desktop: $screen-large;   // 电脑
 
 html, body {
   width: 100vw;

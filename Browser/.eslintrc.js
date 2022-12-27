@@ -38,6 +38,7 @@ module.exports = {
     'space-infix-ops': 'off',
     'no-multiple-empty-lines': 'off',
     'spaced-comment': 'off',
-    'comma-dangle': 'off'
+    'comma-dangle': 'off',
+    'eol-last': 'off', 
   }
 }

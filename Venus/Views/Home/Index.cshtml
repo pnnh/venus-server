@@ -7,34 +7,40 @@
     <link rel='stylesheet' type='text/css' href='/assets/index.css' />
 		<title>启明星</title>
 	</head>
-	<body class="home-page">
+	<body class="home">
 	<div>  
         <partial name="../Shared/_Header.cshtml" />
 		<main>
-			<div class="fx-grid">
-				<div class="ms-Grid-col ms-sm12 ms-xl8">
-					<div class="article-list">
-                        @foreach (var m in Model.Range ){
-							<div class="article-item">
-								<div>
-									<div class="article-link">
-										<a href="/article/read/@m.Pk">@m.Title</a>
-									</div>
-									<div class="article-info">
-										<span class="update-time"><i class="ri-time-line"></i></span>
-										<span class="views"><i class="ri-eye-line"></i></span>
-									</div>
+			<div class="picture-list"> 
+ 
+				@for (var col = 0; col < Model.Grid.Count; col++) {
+					var range = Model.Grid[col]; 
+
+					<div class="cols">
+						@foreach (var m in range) {
+							<div class="picture-item"> 
+								<div class="picture-preview">
+									<a href="/picture/read/@m.Pk">
+										<vns-img>
+											<img src="@m.FilePath" alt="@m.Title" />
+										</vns-img>
+									</a>
 								</div>
+								<div class="picture-info">
+									<span class="update-time"><i class="ri-time-line"></i></span>
+									<span class="views"><i class="ri-eye-line"></i></span>
+								</div> 
 							</div>
-                        } 
+						}
 					</div>
-					@await Html.PartialAsync("../Shared/_Pagination.cshtml", Model.Pagination)
-				</div>
+				}   
+					
+				
+
 			</div>
+					@await Html.PartialAsync("../Shared/_Pagination.cshtml", Model.Pagination)
 		</main> 
-	</div>
-	<div id="root"></div>
-	<script id="data" type="application/json">{{.data}}</script>
+	</div> 
     <script type='module' crossorigin src='/assets/index.js'></script>
 	</body>
 	</html>

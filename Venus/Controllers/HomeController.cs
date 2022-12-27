@@ -18,7 +18,7 @@ public class HomeController : Controller
 
     public IActionResult Index(int page = 1)
     {
-        var indexPageSize = 8;
+        var indexPageSize = 16;
         var currentPage = page;
         if (currentPage <= 1)
         {
@@ -39,11 +39,7 @@ public class HomeController : Controller
             FilePath = pf.Path,
         }).Skip(pagination.Offset).Take(indexPageSize).ToList();
 
-        var model = new IndexViewModel
-        {
-            Range = fBlogs,
-            Pagination = pagination,
-        };
+        var model = new IndexViewModel(fBlogs, pagination); 
         return View(model);
     }
 

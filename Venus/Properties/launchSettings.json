@@ -1,0 +1,10 @@
+{
+    "profiles": {
+        "Default": {
+            "hotReloadEnabled": false,
+            "launchBrowser": false,
+            "dotnetRunMessages": "true",
+            "commandName": "Project"
+        }
+    }
+}
