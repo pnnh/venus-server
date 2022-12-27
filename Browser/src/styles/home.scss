@@ -1,14 +1,4 @@
 body.home {
-  @media (min-width: $screen-tablet) {
-    #user-menu {
-      display: flex;
-      flex-direction: row;
-
-      >button {
-        margin-left: 8px;
-      }
-    }
-  }
 
   main {
     background: #FFFFFF;
@@ -79,9 +69,28 @@ body.home {
     }
   }
 
+  .fx-page {
+    position: fixed;
+    right: 100px;
+    bottom: 100px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: $screen-tablet) {
+    #user-menu {
+      display: flex;
+      flex-direction: row;
+
+      >button {
+        margin-left: 8px;
+      }
+    }
+  }
   @media (min-width: $screen-desktop) {
     main {
-      width: 1200px;
+      width: 1366px;
       margin: 0 auto;
     }
 
