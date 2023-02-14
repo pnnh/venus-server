@@ -53,32 +53,5 @@ namespace Venus.Models
             }
         }
     }
-
-    public class IndexViewModel
-    {
-        public List<PictureModel> Range = new List<PictureModel>();
-
-        public Dictionary<int, List<PictureModel>> Grid = new Dictionary<int, List<PictureModel>>();
-        public PaginationModel Pagination = new PaginationModel();
-
-        public IndexViewModel(List<PictureModel> range, PaginationModel pagination)
-        {
-            this.Range = range;
-            this.Pagination = pagination;
-
-            for (var index = 0; index < range.Count; index++)
-            {
-                var col = index % 6;
-                var m = range[index];
-                if (this.Grid.ContainsKey(col))
-                {
-                    this.Grid[col].Add(m);
-                }
-                else
-                {
-                    this.Grid[col] = new List<PictureModel>() { m };
-                }
-            }
-        }
-    }
+ 
 }

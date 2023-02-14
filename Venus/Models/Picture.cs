@@ -29,16 +29,5 @@ namespace Venus.Models
         [Column("status")]
         public int Status { get; set; } = 0;
     }
-
-    public class PictureModel
-    {
-        public string Pk { get; set; } = "";
-        public string Title { get; set; } = "";
-        public DateTime CreateTime { get; set; } = DateTime.MinValue;
-        public DateTime UpdateTime { get; set; } = DateTime.MinValue;
-        public string Creator { get; set; } = "";
-        public string File { get; set; } = "";
-        public int Status { get; set; } = 0;
-        public string FilePath { get; set; } = "";
-    }
+ 
 }

@@ -1,21 +1,16 @@
 
 
 
-using System.Net;
-using Amazon.AppConfig;
-using Amazon.AppConfig.Model;
-using Amazon.AppConfigData;
-using Amazon.AppConfigData.Model;
+using System.Net; 
 using Venus.Models;
 using Microsoft.EntityFrameworkCore;
-using Venus.Services;
-using StackExchange.Redis;
+using Venus.Services; 
 
 namespace Venus
 {
     public class Venus
     {
-        public static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
 
             var builder = WebApplication.CreateBuilder(args);
@@ -29,19 +24,9 @@ namespace Venus
 
             builder.Services.AddControllersWithViews();
 
-            var config = await AwsConfig.GetConfig();
-            //Configure other services up here
-            var redisConfig = config.Redis;
-            if (redisConfig == null)
-            {
-                throw new Exception("未配置Redis");
-            }
-            var redisOptions = ConfigurationOptions.Parse(redisConfig.Host); // host1:port1, host2:port2, ...
-            redisOptions.Password = redisConfig.Password;
-            var multiplexer = ConnectionMultiplexer.Connect(redisOptions);
-            builder.Services.AddSingleton<IConnectionMultiplexer>(multiplexer);
+            var config = AwsConfig.GetConfig();
 
-            builder.Services.AddDbContext<BloggingContext>(options =>
+            builder.Services.AddDbContext<VenusDatabaseContext>(options =>
             {
                 options.UseNpgsql(config.PgDsn);
             });

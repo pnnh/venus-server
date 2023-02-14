@@ -5,12 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class BloggingContext : DbContext
+public class VenusDatabaseContext : DbContext
 {
-    public DbSet<PictureTable> PicturesTable => Set<PictureTable>();
-    public DbSet<PictureFileModel> PictureFilesTable => Set<PictureFileModel>();
+    public DbSet<PictureTable> Pictures => Set<PictureTable>(); 
 
-    public BloggingContext(DbContextOptions<BloggingContext> options) : base(options)
+    public VenusDatabaseContext(DbContextOptions<VenusDatabaseContext> options) : base(options)
     {
     }
 }

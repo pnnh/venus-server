@@ -1,11 +1,8 @@
 
-using System.Net;
-using Amazon.AppConfig;
-using Amazon.AppConfig.Model;
-using Amazon.AppConfigData;
-using Amazon.AppConfigData.Model;
-using Venus.Models;
-using Microsoft.EntityFrameworkCore;
+using System.Net; 
+using Venus.Models; 
+using System.Collections;
+
 namespace Venus.Services
 {
     public class PolarisConfig
@@ -46,24 +43,13 @@ namespace Venus.Services
     }
 
     public class AwsConfig
-    {
-        static private ConfigModel? currentConfig;
-        //static Dictionary<string, string> DefaultMap = new Dictionary<string, string>();
-
+    {  
         static AwsConfig()
-        {
-            //ParseAppConfig();
+        { 
         }
 
         static Dictionary<string, string> LoadConfigFromAws(string fileName, string envName)
-        {
-            // const string configUrl = "http://127.0.0.1:8001/config/select?project=polaris"; 
-            // using var client = new HttpClient();
-
-            // var response = await client.GetAsync(configUrl); 
-            // var result = await response.Content.ReadAsStringAsync();
-
-            // return result;
+        { 
             var dict = new Dictionary<string, string>();
             foreach (DictionaryEntry item in Environment.GetEnvironmentVariables())
             {
@@ -78,34 +64,19 @@ namespace Venus.Services
             return dict;
         }
 
-        public static async Task<ConfigModel> GetConfig()
+        public static ConfigModel GetConfig()
         {
-            if (currentConfig != null)
-            {
-                return currentConfig;
-            }
             var configModel = new ConfigModel();
-            var configContent = await LoadConfigFromAws("main.config", "default");
-            if (String.IsNullOrEmpty(configContent))
-                throw new Exception("aws 配置为空");
-            var configArray = configContent.Split("\n");
-            foreach (var e in configArray)
+            var configContent = LoadConfigFromAws("main.config", "default");
+            foreach (var e in configContent)
             {
-                var index = e.IndexOf("=");
-                if (index < 0) continue;
-                var key = e.Substring(0, index);
-                var value = e.Substring(index + 1);
-                switch (key)
+                switch (e.Key)
                 {
                     case "CSHARP_DSN":
-                        configModel.PgDsn = value;
-                        break;
-                    case "REDIS":
-                        configModel.Redis = new RedisConfigModel(value);
+                        configModel.PgDsn = e.Value;
                         break;
                 }
             }
-            currentConfig = configModel;
             return configModel;
         }
     }
