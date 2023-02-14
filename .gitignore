@@ -8,3 +8,4 @@ riderModule.iml
 Venus/wwwroot/assets/
 Browser/debug/
 Docker/bin
+.vscode
